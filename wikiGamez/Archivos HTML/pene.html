@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Simple</title>
+    <style>
+        .carrusel {
+            width: 300px; /* Ancho del carrusel */
+            overflow: hidden; /* Ocultar contenido fuera del área */
+            position: relative; /* Para posicionar elementos dentro */
+            margin: auto; /* Centrar el carrusel */
+        }
+
+        .carrusel-items {
+            display: flex; /* Usar flexbox para alinear los items */
+            transition: transform 0.5s ease; /* Transición suave */
+        }
+
+        .item {
+            min-width: 300px; /* Ancho de cada item */
+            height: 200px; /* Altura de cada item */
+            background-color: #4CAF50; /* Color de fondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .controles {
+            text-align: center; /* Centrar los controles */
+            margin-top: 10px; /* Espacio superior */
+        }
+
+        button {
+            cursor: pointer; /* Cambiar el cursor */
+            padding: 10px; /* Espaciado interno */
+            background-color: #007BFF; /* Color de fondo de los botones */
+            color: white; /* Color del texto */
+            border: none; /* Sin bordes */
+            border-radius: 5px; /* Bordes redondeados */
+            margin: 0 5px; /* Espaciado entre botones */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Color al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+
+<div class="carrusel">
+    <div class="carrusel-items">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</div>
+
+<div class="controles">
+    <button onclick="prev()">&#10094;</button>
+    <button onclick="next()">&#10095;</button>
+</div>
+
+<script>
+    let index = 0;
+
+    function showSlide() {
+        const items = document.querySelector('.carrusel-items');
+        const totalItems = document.querySelectorAll('.item').length;
+        const offset = -index * 300; // Ajustar según el ancho del item
+        items.style.transform = `translateX(${offset}px)`;
+    }
+
+    function next() {
+        const totalItems = document.querySelectorAll('.item').length;
+        index = (index + 1) % totalItems; // Mover al siguiente
+        showSlide();
+    }
+
+    function prev() {
+        const totalItems = document.querySelectorAll('.item').length;
+        index = (index - 1 + totalItems) % totalItems; // Mover al anterior
+        showSlide();
+    }
+</script>
+
+</body>
+</html>

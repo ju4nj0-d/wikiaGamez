@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    color: #f7f7ff;
+    background-color: #543962;
+}
+.carrusel {
+    width: 300px; /* Ancho del carrusel */
+    overflow: hidden; /* Ocultar contenido fuera del área */
+    position: relative; /* Para posicionar elementos dentro */
+  }
+  
+  .carrusel-items {
+    display: flex; /* Usar flexbox para alinear los items */
+    transition: transform 0.5s ease; /* Transición suave */
+  }
+  
+  .item {
+    min-width: 300px; /* Ancho de cada item */
+    height: 200px; /* Altura de cada item */
+    background-color: #4CAF50; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+  }
